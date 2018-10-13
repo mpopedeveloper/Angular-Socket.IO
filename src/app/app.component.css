@@ -1,0 +1,64 @@
+h1 {
+    text-align: center;
+    margin:  0 auto;
+}
+
+.main-conatiner {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    height: auto;
+}
+
+
+button {
+    margin: 0 auto;
+}
+
+.main-header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.chat-Container {
+    width: 100%;
+    height: auto;
+}
+
+.chat-log {
+    margin: 0 auto;
+    padding: 0px;
+    /* background-color: aqua; */
+    width: 85%;
+    height: 100px;
+}
+
+.messages-container {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+}
+
+.messages-container li:nth-child(n) {
+    width: 100%;
+    height: auto;
+    list-style: none;
+}
+
+.messages-container li:nth-child(2n) {
+    background-color: lightgray;
+}
+
+#chat_input {
+    width: 90%;
+    height: 2em;
+}
+
+#room-ul-list :nth-child(n) {
+    margin: 0 auto;
+    list-style: none;
+    font-size: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,18 @@
+<div style="width: 100%; height: auto; margin-top: 5rem;">
+  <h1 class="main-header">Twitter Feed with Sockets</h1>
+  <ul class="twitter-feed-container" id="twitter-feed">
+      <li *ngFor="let tweet of tweets">
+          <div class="tweet">
+              <div class="tweet-header">
+                  <img class="tweet-author-img" [src]="tweet.user.profile_image_url_https" alt=""> 
+                  <h4>{{tweet.user.screen_name}}</h4>
+              </div>
+              <hr>
+              <div class="tweet-body">{{tweet.text}}</div>
+          </div>
+      </li>
+  </ul>
+</div>
+<div class="product-Container">
+
+</div>

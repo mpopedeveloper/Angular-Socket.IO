@@ -1,0 +1,18 @@
+.main-header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.product-Container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+}
+
+.product-card {
+    width: 200px;
+    height: 300px;
+    border: 3px black solid;
+    text-align: center;
+}
