@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from './chat.service';
-
+/**View the ChatService file to see the logic */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {ChatService} from '../chat.service';
-
+/**View the ChatService file to see the logic */
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',

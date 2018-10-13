@@ -9,7 +9,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class TwitterComponent implements OnInit {
   tweets = [];
-
+/**View the ChatService file to see the logic */
   constructor(private chat: ChatService) { }
 
   ngOnInit() {
