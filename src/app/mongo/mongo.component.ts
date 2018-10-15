@@ -13,13 +13,21 @@ export class MongoComponent implements OnInit {
   ngOnInit() {
     this.getProductData();
     this.chat.events.subscribe(event => {
-      console.log(event);
-      this.product = event;
+      console.log(event.payload);
+      this.product = event.payload;
     });
   }
 
   getProductData() {
   this.chat.getProductData();
+  }
+
+  incrementProductQuantity() {
+    this.chat.incrementProductQuantity();
+  }
+
+  decrementProductQuantity() {
+    this.chat.decrementProductQuantity();
   }
 
 }

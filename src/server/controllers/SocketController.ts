@@ -51,6 +51,18 @@ export class SocketController {
                 socket.emit('product retrieved', { payload: products });
             });
 
+            socket.on('increment product quantity', async (data) => {
+                await ProductController.incrementProduct();
+                let products = await ProductController.returnAllProducts();
+                socket.emit('product retrieved', { payload: products });
+            });
+
+            socket.on('decrement product quantity', async (data) => {
+                await ProductController.decrementProduct();
+                let products = await ProductController.returnAllProducts();
+                socket.emit('product retrieved', { payload: products });
+            });
+
 
 
             // socket.on('client connected', (data) => {

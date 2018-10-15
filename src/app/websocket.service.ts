@@ -95,4 +95,12 @@ private socket =  io(environment.ws_url); // socket that connects to our socket.
     console.log('debug');
     this.socket.emit('get product data', {payload: 'Fetch product data'});
   }
+
+  incrementProductQuantity() {
+    this.socket.emit('increment product quantity');
+  }
+
+  decrementProductQuantity() {
+    this.socket.emit('decrement product quantity');
+  }
 }

@@ -49,4 +49,12 @@ export class ChatService {
    getProductData() {
      this.wsService.getProductData();
    }
+
+   incrementProductQuantity() {
+     this.wsService.incrementProductQuantity();
+   }
+
+   decrementProductQuantity() {
+    this.wsService.decrementProductQuantity();
+  }
 }
