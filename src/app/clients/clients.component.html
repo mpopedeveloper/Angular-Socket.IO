@@ -1,1 +1,20 @@
+
+<div style="width: 100%; height: auto;">
+    <h1 class="main-header">Chat App With Socket.io!</h1>
+</div>
+<div class="chat-Container">
+    <div class="chat-log">
+        <ul class="messages-container" id="chat">
+            <li *ngFor="let msg of chatMessages">{{msg}}</li>
+        </ul>
+    </div>
+</div>
+<div style="width: 100%; height: auto;">
+    <form style="margin: 0 auto;text-align: center; width: 100%;">
+        <div style="margin: 0 auto; width: 50%;">
+            <input  id="chat_input"  #chat_input/>
+            <button type="button" (click)="chatInput(chat_input.value)" class="send-button">Send</button>
+        </div>
+    </form>
+</div>
 <h1>Connected Clients: {{clients}}</h1>

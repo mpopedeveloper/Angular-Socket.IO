@@ -41,6 +41,10 @@ export class SocketController {
                 io.to('room3').emit('joined room3', { payload: 'You joined room 3!' });
             });
 
+            socket.on('chat message', (msg) => {
+                io.emit('chat message response', {msg});
+            });
+
             socket.on('activate twitter feed', (data) => {
                 console.log('Connected to twitter feed page!');
                 this.Twitter.listenToTwitterFeed(socket);

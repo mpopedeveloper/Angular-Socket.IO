@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from '../chat.service';
 /**View the ChatService file to see the logic */
@@ -7,12 +9,17 @@ import { ChatService } from '../chat.service';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit, OnDestroy {
+  chatMessages: string[] = [];
   clients: any;
   constructor(private chat: ChatService) { }
 
   ngOnInit() {
     this.chat.events.subscribe(event => {
+      if (event.hasOwnProperty('msg')) {
+        this.chatMessages.push(event.msg);
+      } else {
       this.clients = event.clients;
+      }
     });
   }
 
@@ -20,6 +27,11 @@ export class ClientsComponent implements OnInit, OnDestroy {
     this.chat.events.subscribe(event => {
       this.clients = event.clients;
     });
+  }
+
+  chatInput(input: any) {
+    this.chat.chatMessage(input);
+    //console.log(input);
   }
 
 }

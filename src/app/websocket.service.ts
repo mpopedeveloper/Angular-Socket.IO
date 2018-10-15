@@ -58,6 +58,10 @@ private socket =  io(environment.ws_url); // socket that connects to our socket.
       this.socket.on('client disconnected', (data) => {
         observer.next(data);
       });
+      this.socket.on('chat message response', (data) => {
+        console.log('debug');
+        observer.next(data);
+      });
       this.socket.on('tweet', (data) => {
         console.log('tweet');
         observer.next(data);
@@ -102,5 +106,9 @@ private socket =  io(environment.ws_url); // socket that connects to our socket.
 
   decrementProductQuantity() {
     this.socket.emit('decrement product quantity');
+  }
+
+  chatMessage(msg) {
+    this.socket.emit('chat message', msg);
   }
 }

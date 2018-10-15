@@ -10,6 +10,7 @@ export class ChatService {
 
   messages: Subject<any>;
   events: Subject<any>;
+  chatMessages: any;
 
   /**NOTE: Give each page its own method*/
 
@@ -56,5 +57,9 @@ export class ChatService {
 
    decrementProductQuantity() {
     this.wsService.decrementProductQuantity();
+  }
+
+  chatMessage(msg) {
+    this.wsService.chatMessage(msg);
   }
 }
