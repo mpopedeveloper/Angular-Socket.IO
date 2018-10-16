@@ -10,14 +10,14 @@ import { ChatService } from '../chat.service';
 })
 export class ClientsComponent implements OnInit, OnDestroy {
   chatMessages: string[] = [];
-  clients: any;
+  clients: any = 1;
   constructor(private chat: ChatService) { }
 
   ngOnInit() {
     this.chat.events.subscribe(event => {
       if (event.hasOwnProperty('msg')) {
         this.chatMessages.push(event.msg);
-      } else {
+      } else if (event.hasOwnProperty('clients')) {
       this.clients = event.clients;
       }
     });
@@ -31,7 +31,6 @@ export class ClientsComponent implements OnInit, OnDestroy {
 
   chatInput(input: any) {
     this.chat.chatMessage(input);
-    //console.log(input);
   }
 
 }

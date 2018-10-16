@@ -43,42 +43,52 @@ private socket =  io(environment.ws_url); // socket that connects to our socket.
       this.socket.on('event', (data) => {
         observer.next(data);
       });
+
       this.socket.on('joined room1', (data) => {
         observer.next(data);
       });
+
       this.socket.on('joined room2', (data) => {
         observer.next(data);
       });
+
       this.socket.on('joined room3', (data) => {
         observer.next(data);
       });
+
       this.socket.on('client connected', (data) => {
         observer.next(data);
       });
+
       this.socket.on('client disconnected', (data) => {
         observer.next(data);
       });
+
       this.socket.on('chat message response', (data) => {
-        console.log('debug');
         observer.next(data);
       });
+
       this.socket.on('tweet', (data) => {
         console.log('tweet');
         observer.next(data);
       });
+
       this.socket.on('product retrieved', (data) => {
         console.log(data);
         observer.next(data);
       });
+
       return () => {
         this.socket.disconnect();
       };
     });
+
     const observer1 = {
       next(data: Object) {
         console.log('Nothing');
       }
     };
+
     return Rx.Subject.create(observer1, Observable$);
   }
 

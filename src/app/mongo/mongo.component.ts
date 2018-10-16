@@ -12,6 +12,7 @@ export class MongoComponent implements OnInit {
   product: any;
   ngOnInit() {
     this.getProductData();
+
     this.chat.events.subscribe(event => {
       console.log(event.payload);
       this.product = event.payload;
