@@ -11,6 +11,15 @@ export class SocketController {
 /**The following funcions emit events to the server */
         let clients = 0;
         io.on('connection', (socket) => {
+            /**Use the setInterval function below to test emiting to a specific
+             * socket id even on Angular navigation change.
+             */
+            // const sendUpdate = () => {
+            //     io.to(`${socket.id}`).emit('socket', `Messaged to ${socket.id} from server...`);
+            // };
+            // setInterval(sendUpdate, 2000);
+            io.to(`${socket.id}`).emit('socket', `Messaged to ${socket.id} from server...`);
+            console.log(socket.id);
             clients++;
             io.emit('client connected', { clients });
             console.log('user connected');
@@ -30,15 +39,15 @@ export class SocketController {
             });
             socket.on('join room1', (data) => {
                 socket.join('room1');
-                io.to('room1').emit('joined room1', { payload: 'You joined room 1!' });
+                io.to('room1').emit('joined room1', { room: 'You joined room 1!' });
             });
             socket.on('join room2', (data) => {
                 socket.join('room2');
-                io.to('room2').emit('joined room2', { payload: 'You joined room 2!' });
+                io.to('room2').emit('joined room2', { room: 'You joined room 2!' });
             });
             socket.on('join room3', (data) => {
                 socket.join('room3');
-                io.to('room3').emit('joined room3', { payload: 'You joined room 3!' });
+                io.to('room3').emit('joined room3', { room: 'You joined room 3!' });
             });
 
             socket.on('chat message', (msg) => {

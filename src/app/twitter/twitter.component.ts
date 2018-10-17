@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
@@ -7,7 +7,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './twitter.component.html',
   styleUrls: ['./twitter.component.css']
 })
-export class TwitterComponent implements OnInit {
+export class TwitterComponent implements OnInit, OnDestroy {
   tweets = [];
 /**View the ChatService file to see the logic */
   constructor(private chat: ChatService) { }
@@ -19,6 +19,11 @@ export class TwitterComponent implements OnInit {
      this.tweets.push(event.payload);
     });
   }
+
+  ngOnDestroy() {
+    this.chat.events.unsubscribe();
+  }
+
 
   activateTwitterFeed() {
     this.chat.activateTwitterFeed();

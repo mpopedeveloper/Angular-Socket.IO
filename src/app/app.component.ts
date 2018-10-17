@@ -8,14 +8,17 @@ import { ChatService } from './chat.service';
 })
 export class AppComponent implements OnInit {
   rooms: string[] = ['room1', 'room2', 'room3'];
-  constructor(private chat: ChatService) {}
+  constructor(private chat: ChatService) { }
 
   ngOnInit() {
     // this.chat.messages.subscribe(msg => {
     //   console.log(msg);
     // });
     this.chat.events.subscribe(event => {
-      console.log(event);
+      if (!event.hasOwnProperty('clients')) {
+        console.log(event);
+      }
+      // console.log(event);
     });
   }
 

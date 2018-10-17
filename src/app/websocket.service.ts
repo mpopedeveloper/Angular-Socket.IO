@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import * as Rx from 'rxjs';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 
 /**
  * This class handles all socket.io events between the server and client.
@@ -11,7 +11,7 @@ import {environment} from '../environments/environment';
   providedIn: 'root'
 })
 export class WebsocketService {
-private socket =  io(environment.ws_url); // socket that connects to our socket.io server
+  private socket = io(environment.ws_url); // socket that connects to our socket.io server
 
   constructor() { }
 
@@ -60,6 +60,10 @@ private socket =  io(environment.ws_url); // socket that connects to our socket.
         observer.next(data);
       });
 
+      this.socket.on('socket', (data) => {
+        console.log(data);
+      });
+
       this.socket.on('client disconnected', (data) => {
         observer.next(data);
       });
@@ -97,17 +101,15 @@ private socket =  io(environment.ws_url); // socket that connects to our socket.
   }
 
   emit() {
-    this.socket.emit('event', {payload: 'Sent message to server'});
+    this.socket.emit('event', { payload: 'Sent message to server' });
   }
 
   activateTwitterFeed() {
-    console.log('debug');
-    this.socket.emit('activate twitter feed', {payload: 'Activating twitter feed!'});
+    this.socket.emit('activate twitter feed', { payload: 'Activating twitter feed!' });
   }
 
   getProductData() {
-    console.log('debug');
-    this.socket.emit('get product data', {payload: 'Fetch product data'});
+    this.socket.emit('get product data', { payload: 'Fetch product data' });
   }
 
   incrementProductQuantity() {
